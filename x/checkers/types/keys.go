@@ -74,3 +74,7 @@ const (
 	ForfeitGameEventIdValue = "IdValue"
 	ForfeitGameEventWinner  = "Winner"
 )
+
+const (
+	PlayerInfoKey = "PlayerInfo-value-"
+)
