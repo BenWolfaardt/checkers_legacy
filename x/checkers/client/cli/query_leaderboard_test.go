@@ -11,16 +11,16 @@ import (
 
 	"github.com/BenWolfaardt/Checkers/testutil/network"
 	"github.com/BenWolfaardt/Checkers/x/checkers/client/cli"
-    "github.com/BenWolfaardt/Checkers/x/checkers/types"
+	"github.com/BenWolfaardt/Checkers/x/checkers/types"
 )
 
 func networkWithLeaderboardObjects(t *testing.T) (*network.Network, *types.Leaderboard) {
 	t.Helper()
 	cfg := network.DefaultConfig()
 	state := types.GenesisState{}
-    require.NoError(t, cfg.Codec.UnmarshalJSON(cfg.GenesisState[types.ModuleName], &state))
+	require.NoError(t, cfg.Codec.UnmarshalJSON(cfg.GenesisState[types.ModuleName], &state))
 
-	state.Leaderboard = &types.Leaderboard{Creator: "ANY"}
+	state.Leaderboard = &types.Leaderboard{}
 	buf, err := cfg.Codec.MarshalJSON(&state)
 	require.NoError(t, err)
 	cfg.GenesisState[types.ModuleName] = buf
@@ -65,4 +65,3 @@ func TestShowLeaderboard(t *testing.T) {
 		})
 	}
 }
-
