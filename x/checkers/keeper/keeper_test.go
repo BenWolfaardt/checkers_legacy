@@ -9,6 +9,11 @@ import (
 	"github.com/cosmos/cosmos-sdk/store"
 	storetypes "github.com/cosmos/cosmos-sdk/store/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
+	accountKeeper "github.com/cosmos/cosmos-sdk/x/auth/keeper"
+	accountTypes "github.com/cosmos/cosmos-sdk/x/auth/types"
+	bankKeeper "github.com/cosmos/cosmos-sdk/x/bank/keeper"
+	paramsKeeper "github.com/cosmos/cosmos-sdk/x/params/keeper"
+	paramsTypes "github.com/cosmos/cosmos-sdk/x/params/types"
 	"github.com/stretchr/testify/require"
 	"github.com/tendermint/tendermint/libs/log"
 	tmproto "github.com/tendermint/tendermint/proto/tendermint/types"
@@ -16,7 +21,20 @@ import (
 )
 
 func setupKeeper(t testing.TB) (*Keeper, sdk.Context) {
+	registry := codectypes.NewInterfaceRegistry()
+	cdc := codec.NewProtoCodec(registry)
+	tkeys := sdk.NewTransientStoreKeys(paramsTypes.TStoreKey)
+	blacklistedAddrs := make(map[string]bool)
+	maccPerms := map[string][]string{
+		accountTypes.FeeCollectorName: nil,
+		types.ModuleName:              {accountTypes.Minter},
+	}
+
 	storeKey := sdk.NewKVStoreKey(types.StoreKey)
+	paramsKeeper := paramsKeeper.NewKeeper(cdc, codec.NewLegacyAmino(), storeKey, tkeys[paramsTypes.TStoreKey])
+	accountKeeper := accountKeeper.NewAccountKeeper(cdc, storeKey, paramsKeeper.Subspace("auth"), accountTypes.ProtoBaseAccount, maccPerms)
+	bankKeeper := bankKeeper.NewBaseKeeper(cdc, storeKey, accountKeeper, paramsKeeper.Subspace("bank"), blacklistedAddrs)
+
 	memStoreKey := storetypes.NewMemoryStoreKey(types.MemStoreKey)
 
 	db := tmdb.NewMemDB()
@@ -25,9 +43,9 @@ func setupKeeper(t testing.TB) (*Keeper, sdk.Context) {
 	stateStore.MountStoreWithDB(memStoreKey, sdk.StoreTypeMemory, nil)
 	require.NoError(t, stateStore.LoadLatestVersion())
 
-	registry := codectypes.NewInterfaceRegistry()
 	keeper := NewKeeper(
-		codec.NewProtoCodec(registry),
+		bankKeeper, // boh, not sure
+		cdc,
 		storeKey,
 		memStoreKey,
 	)
