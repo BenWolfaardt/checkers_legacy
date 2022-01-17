@@ -1,0 +1,11 @@
+syntax = "proto3";
+package BenWolfaardt.checkers.checkers;
+
+option go_package = "github.com/BenWolfaardt/Checkers/x/checkers/types";
+
+import "gogoproto/gogo.proto";
+
+message Leaderboard {
+  string creator = 1;
+  string winners = 2; 
+}

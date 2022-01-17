@@ -4,6 +4,7 @@ package BenWolfaardt.checkers.checkers;
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 // this line is used by starport scaffolding # 1
+import "checkers/leaderboard.proto";
 import "checkers/player_info.proto";
 import "checkers/stored_game.proto";
 import "checkers/next_game.proto";
@@ -13,6 +14,12 @@ option go_package = "github.com/BenWolfaardt/Checkers/x/checkers/types";
 // Query defines the gRPC querier service.
 service Query {
     // this line is used by starport scaffolding # 2
+
+	// Queries a leaderboard by index.
+	rpc Leaderboard(QueryGetLeaderboardRequest) returns (QueryGetLeaderboardResponse) {
+		option (google.api.http).get = "/BenWolfaardt/checkers/checkers/leaderboard";
+	}
+
 
 	// Queries a playerInfo by index.
 	rpc PlayerInfo(QueryGetPlayerInfoRequest) returns (QueryGetPlayerInfoResponse) {
@@ -50,6 +57,11 @@ service Query {
 }
 
 // this line is used by starport scaffolding # 3
+message QueryGetLeaderboardRequest {}
+
+message QueryGetLeaderboardResponse {
+	Leaderboard Leaderboard = 1;
+}
 message QueryGetPlayerInfoRequest {
 	string index = 1;
 }
