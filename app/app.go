@@ -340,6 +340,7 @@ func New(
 	)
 
 	app.CheckersKeeper = *checkersmodulekeeper.NewKeeper(
+		app.BankKeeper,
 		appCodec,
 		keys[checkersmoduletypes.StoreKey],
 		keys[checkersmoduletypes.MemStoreKey],

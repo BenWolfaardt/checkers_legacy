@@ -44,6 +44,7 @@ const (
 	StoredGameEventIndex   = "Index" // What game is relevant
 	StoredGameEventRed     = "Red"   // Is it relevant to me?
 	StoredGameEventBlack   = "Black" // Is it relevant to me?
+	StoredGameEventWager   = "Wager"
 )
 
 const (
