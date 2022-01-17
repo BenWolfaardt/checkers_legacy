@@ -38,6 +38,12 @@ const (
 )
 
 const (
+	CreateGameGas = 10
+	PlayMoveGas   = 10
+	RejectGameGas = 0
+)
+
+const (
 	StoredGameKey          = "StoredGame-value-"
 	StoredGameEventKey     = "NewGameCreated" // Indicates what key to listen to
 	StoredGameEventCreator = "Creator"

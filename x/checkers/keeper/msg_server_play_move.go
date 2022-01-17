@@ -87,10 +87,7 @@ func (k msgServer) PlayMove(goCtx context.Context, msg *types.MsgPlayMove) (*typ
 	k.Keeper.SetStoredGame(ctx, storedGame)
 	k.Keeper.SetNextGame(ctx, nextGame)
 
-	// Save for the next play move
-	storedGame.Game = game.String()
-	storedGame.Turn = game.Turn.Color
-	k.Keeper.SetStoredGame(ctx, storedGame)
+	ctx.GasMeter().ConsumeGas(types.PlayMoveGas, "Play a move")
 
 	// What to emit
 	ctx.EventManager().EmitEvent(
