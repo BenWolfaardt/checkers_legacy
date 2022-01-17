@@ -1,5 +1,7 @@
 package types
 
+import "time"
+
 const (
 	// ModuleName defines the module name
 	ModuleName = "checkers"
@@ -30,14 +32,13 @@ const (
 )
 
 const (
-	NoFifoIdKey = "-1"
+	NoFifoIdKey              = "-1"
+	MaxTurnDurationInSeconds = time.Duration(24 * 3_600 * 1000_000_000) // 1 day
+	DeadlineLayout           = "2006-01-02 15:04:05.999999999 +0000 UTC"
 )
 
 const (
-	StoredGameKey = "StoredGame-value-"
-)
-
-const (
+	StoredGameKey          = "StoredGame-value-"
 	StoredGameEventKey     = "NewGameCreated" // Indicates what key to listen to
 	StoredGameEventCreator = "Creator"
 	StoredGameEventIndex   = "Index" // What game is relevant

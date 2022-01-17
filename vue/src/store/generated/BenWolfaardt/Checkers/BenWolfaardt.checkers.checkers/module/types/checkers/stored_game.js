@@ -12,6 +12,7 @@ const baseStoredGame = {
     moveCount: 0,
     beforeId: "",
     afterId: "",
+    deadline: "",
 };
 export const StoredGame = {
     encode(message, writer = Writer.create()) {
@@ -41,6 +42,9 @@ export const StoredGame = {
         }
         if (message.afterId !== "") {
             writer.uint32(74).string(message.afterId);
+        }
+        if (message.deadline !== "") {
+            writer.uint32(82).string(message.deadline);
         }
         return writer;
     },
@@ -77,6 +81,9 @@ export const StoredGame = {
                     break;
                 case 9:
                     message.afterId = reader.string();
+                    break;
+                case 10:
+                    message.deadline = reader.string();
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -141,6 +148,12 @@ export const StoredGame = {
         else {
             message.afterId = "";
         }
+        if (object.deadline !== undefined && object.deadline !== null) {
+            message.deadline = String(object.deadline);
+        }
+        else {
+            message.deadline = "";
+        }
         return message;
     },
     toJSON(message) {
@@ -154,6 +167,7 @@ export const StoredGame = {
         message.moveCount !== undefined && (obj.moveCount = message.moveCount);
         message.beforeId !== undefined && (obj.beforeId = message.beforeId);
         message.afterId !== undefined && (obj.afterId = message.afterId);
+        message.deadline !== undefined && (obj.deadline = message.deadline);
         return obj;
     },
     fromPartial(object) {
@@ -211,6 +225,12 @@ export const StoredGame = {
         }
         else {
             message.afterId = "";
+        }
+        if (object.deadline !== undefined && object.deadline !== null) {
+            message.deadline = object.deadline;
+        }
+        else {
+            message.deadline = "";
         }
         return message;
     },
