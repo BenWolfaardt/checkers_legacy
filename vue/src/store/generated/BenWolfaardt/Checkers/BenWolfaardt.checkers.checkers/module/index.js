@@ -2,9 +2,11 @@
 import { SigningStargateClient } from "@cosmjs/stargate";
 import { Registry } from "@cosmjs/proto-signing";
 import { Api } from "./rest";
+import { MsgRejectGame } from "./types/checkers/tx";
 import { MsgCreateGame } from "./types/checkers/tx";
 import { MsgPlayMove } from "./types/checkers/tx";
 const types = [
+    ["/BenWolfaardt.checkers.checkers.MsgRejectGame", MsgRejectGame],
     ["/BenWolfaardt.checkers.checkers.MsgCreateGame", MsgCreateGame],
     ["/BenWolfaardt.checkers.checkers.MsgPlayMove", MsgPlayMove],
 ];
@@ -21,6 +23,7 @@ const txClient = async (wallet, { addr: addr } = { addr: "http://localhost:26657
     const { address } = (await wallet.getAccounts())[0];
     return {
         signAndBroadcast: (msgs, { fee, memo } = { fee: defaultFee, memo: "" }) => client.signAndBroadcast(address, msgs, fee, memo),
+        msgRejectGame: (data) => ({ typeUrl: "/BenWolfaardt.checkers.checkers.MsgRejectGame", value: data }),
         msgCreateGame: (data) => ({ typeUrl: "/BenWolfaardt.checkers.checkers.MsgCreateGame", value: data }),
         msgPlayMove: (data) => ({ typeUrl: "/BenWolfaardt.checkers.checkers.MsgPlayMove", value: data }),
     };

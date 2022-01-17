@@ -19330,6 +19330,8 @@ definitions:
         format: int64
       winner:
         type: string
+  BenWolfaardt.checkers.checkers.MsgRejectGameResponse:
+    type: object
   BenWolfaardt.checkers.checkers.NextGame:
     type: object
     properties:
