@@ -4,8 +4,8 @@ package BenWolfaardt.checkers.checkers;
 option go_package = "github.com/BenWolfaardt/Checkers/x/checkers/types";
 
 import "gogoproto/gogo.proto";
+import "checkers/winning_player.proto";
 
 message Leaderboard {
-  string creator = 1;
-  string winners = 2; 
+  repeated WinningPlayer winners = 1; 
 }

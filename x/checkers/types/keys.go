@@ -44,6 +44,11 @@ const (
 )
 
 const (
+	LeaderboardWinnerLength = 100
+	DateAddedLayout         = DeadlineLayout
+)
+
+const (
 	StoredGameKey          = "StoredGame-value-"
 	StoredGameEventKey     = "NewGameCreated" // Indicates what key to listen to
 	StoredGameEventCreator = "Creator"
@@ -80,5 +85,5 @@ const (
 )
 
 const (
-	LeaderboardKey= "Leaderboard-value-"
+	LeaderboardKey = "Leaderboard-value-"
 )
