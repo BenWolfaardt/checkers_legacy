@@ -1,17 +1,16 @@
 import { Writer, Reader } from "protobufjs/minimal";
 export declare const protobufPackage = "BenWolfaardt.checkers.checkers";
-export interface PlayerInfo {
-    index: string;
+export interface WinningPlayer {
+    playerAddress: string;
     wonCount: number;
-    lostCount: number;
-    forfeitedCount: number;
+    dateAdded: string;
 }
-export declare const PlayerInfo: {
-    encode(message: PlayerInfo, writer?: Writer): Writer;
-    decode(input: Reader | Uint8Array, length?: number): PlayerInfo;
-    fromJSON(object: any): PlayerInfo;
-    toJSON(message: PlayerInfo): unknown;
-    fromPartial(object: DeepPartial<PlayerInfo>): PlayerInfo;
+export declare const WinningPlayer: {
+    encode(message: WinningPlayer, writer?: Writer): Writer;
+    decode(input: Reader | Uint8Array, length?: number): WinningPlayer;
+    fromJSON(object: any): WinningPlayer;
+    toJSON(message: WinningPlayer): unknown;
+    fromPartial(object: DeepPartial<WinningPlayer>): WinningPlayer;
 };
 declare type Builtin = Date | Function | Uint8Array | string | number | undefined;
 export declare type DeepPartial<T> = T extends Builtin ? T : T extends Array<infer U> ? Array<DeepPartial<U>> : T extends ReadonlyArray<infer U> ? ReadonlyArray<DeepPartial<U>> : T extends {} ? {

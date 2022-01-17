@@ -1,9 +1,7 @@
 syntax = "proto3";
 package BenWolfaardt.checkers.checkers;
 
-option go_package = "github.com/BenWolfaardt/checkers/x/checkers/types";
-
-import "gogoproto/gogo.proto";
+option go_package = "github.com/BenWolfaardt/Checkers/x/checkers/types";
 
 message WinningPlayer {
   string playerAddress = 1;

@@ -3,8 +3,6 @@ package BenWolfaardt.checkers.checkers;
 
 option go_package = "github.com/BenWolfaardt/Checkers/x/checkers/types";
 
-import "gogoproto/gogo.proto";
-
 message NextGame {
   string creator = 1;
   uint64 idValue = 2; 

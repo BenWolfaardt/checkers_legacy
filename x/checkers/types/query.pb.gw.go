@@ -637,19 +637,19 @@ func RegisterQueryHandlerClient(ctx context.Context, mux *runtime.ServeMux, clie
 }
 
 var (
-	pattern_Query_Leaderboard_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"BenWolfaardt", "Checkers", "checkers", "leaderboard"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_Leaderboard_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1, 2, 2}, []string{"BenWolfaardt", "checkers", "leaderboard"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_PlayerInfo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"BenWolfaardt", "Checkers", "checkers", "playerInfo", "index"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_PlayerInfo_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"BenWolfaardt", "checkers", "playerInfo", "index"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_PlayerInfoAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"BenWolfaardt", "Checkers", "checkers", "playerInfo"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_PlayerInfoAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1, 2, 2}, []string{"BenWolfaardt", "checkers", "playerInfo"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_CanPlayMove_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"BenWolfaardt", "Checkers", "checkers", "canPlayMove"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_CanPlayMove_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1, 2, 2}, []string{"BenWolfaardt", "checkers", "canPlayMove"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_StoredGame_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3, 1, 0, 4, 1, 5, 4}, []string{"BenWolfaardt", "Checkers", "checkers", "storedGame", "index"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_StoredGame_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1, 2, 2, 1, 0, 4, 1, 5, 3}, []string{"BenWolfaardt", "checkers", "storedGame", "index"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_StoredGameAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"BenWolfaardt", "Checkers", "checkers", "storedGame"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_StoredGameAll_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1, 2, 2}, []string{"BenWolfaardt", "checkers", "storedGame"}, "", runtime.AssumeColonVerbOpt(true)))
 
-	pattern_Query_NextGame_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2, 2, 3}, []string{"BenWolfaardt", "Checkers", "checkers", "nextGame"}, "", runtime.AssumeColonVerbOpt(true)))
+	pattern_Query_NextGame_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 1, 2, 2}, []string{"BenWolfaardt", "checkers", "nextGame"}, "", runtime.AssumeColonVerbOpt(true)))
 )
 
 var (

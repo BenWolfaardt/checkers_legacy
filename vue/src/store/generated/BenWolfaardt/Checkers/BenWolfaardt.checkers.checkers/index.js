@@ -1,10 +1,12 @@
 import { txClient, queryClient, MissingWalletError } from './module';
 // @ts-ignore
 import { SpVuexError } from '@starport/vuex';
+import { Leaderboard } from "./module/types/checkers/leaderboard";
 import { NextGame } from "./module/types/checkers/next_game";
 import { PlayerInfo } from "./module/types/checkers/player_info";
 import { StoredGame } from "./module/types/checkers/stored_game";
-export { NextGame, PlayerInfo, StoredGame };
+import { WinningPlayer } from "./module/types/checkers/winning_player";
+export { Leaderboard, NextGame, PlayerInfo, StoredGame, WinningPlayer };
 async function initTxClient(vuexGetters) {
     return await txClient(vuexGetters['common/wallet/signer'], {
         addr: vuexGetters['common/env/apiTendermint']
@@ -38,6 +40,7 @@ function getStructure(template) {
 }
 const getDefaultState = () => {
     return {
+        Leaderboard: {},
         PlayerInfo: {},
         PlayerInfoAll: {},
         CanPlayMove: {},
@@ -45,9 +48,11 @@ const getDefaultState = () => {
         StoredGameAll: {},
         NextGame: {},
         _Structure: {
+            Leaderboard: getStructure(Leaderboard.fromPartial({})),
             NextGame: getStructure(NextGame.fromPartial({})),
             PlayerInfo: getStructure(PlayerInfo.fromPartial({})),
             StoredGame: getStructure(StoredGame.fromPartial({})),
+            WinningPlayer: getStructure(WinningPlayer.fromPartial({})),
         },
         _Subscriptions: new Set(),
     };
@@ -72,6 +77,12 @@ export default {
         }
     },
     getters: {
+        getLeaderboard: (state) => (params = { params: {} }) => {
+            if (!params.query) {
+                params.query = null;
+            }
+            return state.Leaderboard[JSON.stringify(params)] ?? {};
+        },
         getPlayerInfo: (state) => (params = { params: {} }) => {
             if (!params.query) {
                 params.query = null;
@@ -136,6 +147,19 @@ export default {
                     throw new SpVuexError('Subscriptions: ' + e.message);
                 }
             });
+        },
+        async QueryLeaderboard({ commit, rootGetters, getters }, { options: { subscribe, all } = { subscribe: false, all: false }, params: { ...key }, query = null }) {
+            try {
+                const queryClient = await initQueryClient(rootGetters);
+                let value = (await queryClient.queryLeaderboard()).data;
+                commit('QUERY', { query: 'Leaderboard', key: { params: { ...key }, query }, value });
+                if (subscribe)
+                    commit('SUBSCRIBE', { action: 'QueryLeaderboard', payload: { options: { all }, params: { ...key }, query } });
+                return getters['getLeaderboard']({ params: { ...key }, query }) ?? {};
+            }
+            catch (e) {
+                throw new SpVuexError('QueryClient:QueryLeaderboard', 'API Node Unavailable. Could not perform query: ' + e.message);
+            }
         },
         async QueryPlayerInfo({ commit, rootGetters, getters }, { options: { subscribe, all } = { subscribe: false, all: false }, params: { ...key }, query = null }) {
             try {
