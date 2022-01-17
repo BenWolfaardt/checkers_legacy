@@ -1,8 +1,12 @@
 accounts:
   - name: alice
     coins: ["20000token", "200000000stake"]
+    mnemonic: "gaze apart pen defense tomorrow index again pool earth force napkin noble elevator payment hawk trip cute gown fade wear swallow alert lemon people"
+    # cosmos18h03de6awcjk4u9gaz8s5l0xxl8ulxjcuft0t7
   - name: bob
     coins: ["10000token", "100000000stake"]
+    mnemonic: "special chest leaf section reunion inflict busy blouse inflict kid alcohol hazard embody mosquito green turkey street very lab forest gain disease hollow bomb"
+    # cosmos1829s409tjju2luhudq5dfeus6je3vfdn987qpq
 validator:
   name: alice
   staked: "100000000stake"
