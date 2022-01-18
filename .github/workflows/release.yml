@@ -27,11 +27,17 @@ jobs:
         id: vars
         uses: tendermint/starport/actions/release/vars@develop
 
-      - name: Issue Release Assets 
-        uses: tendermint/starport/actions/cli@develop
-        if: ${{ steps.vars.outputs.should_release == 'true' }}
-        with:
-          args: chain build --release --release.prefix ${{ steps.vars.outputs.tarball_prefix }} -t linux:amd64 -t darwin:amd64
+      # - name: Issue Release Assets 
+      #   uses: tendermint/starport/actions/cli@develop
+      #   if: ${{ steps.vars.outputs.should_release == 'true' }}
+      #   with:
+      #     args: chain build --release --release.prefix ${{ steps.vars.outputs.tarball_prefix }} -t linux:amd64 -t darwin:amd64
+
+      # error while running command go: # github.com/CosmWasm/wasmvm/api
+      # /go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.14.0/api/mock_failure.go:15:27: undefined: GoAPI
+      # /go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.14.0/api/mocks.go:114:2: undefined: GasMeter
+      # /go/pkg/mod/github.com/!cosm!wasm/wasmvm@v0.14.0/api/mocks.go:115:20: undefined: Gas
+      # : exit status 2
 
       - name: Delete the "latest" Release
         uses: dev-drprasad/delete-tag-and-release@v0.2.0
