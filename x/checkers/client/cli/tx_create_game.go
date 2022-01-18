@@ -15,14 +15,14 @@ var _ = strconv.Itoa(0)
 
 func CmdCreateGame() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "create-game [red] [black] [wager]",
+		Use:   "create-game [red] [black] [wager] [token]",
 		Short: "Broadcast message createGame",
 		Args:  cobra.ExactArgs(4),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			argsRed := string(args[0])
 			argsBlack := string(args[1])
 			argsWager, err := strconv.ParseInt(args[2], 10, 64)
-			argsToken := string(args[4])
+			argsToken := string(args[3])
 			if err != nil {
 				panic(err)
 			}

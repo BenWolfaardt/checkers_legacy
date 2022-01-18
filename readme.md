@@ -9,6 +9,69 @@ starport chain serve
 
 `serve` command installs dependencies, builds, initializes, and starts your blockchain in development.
 
+## How to play 
+
+First create the binary for the `CLI`
+
+```
+    make build-local-linux
+    cd build
+    ./checkersd
+```
+
+> In this directory `./checkersd -h` will give you an overview of all of the commands.
+
+We're interesting in `./checkersd tx checkers -h` which returns: 
+
+```
+    Available Commands:
+        create-game Broadcast message createGame
+        play-move   Broadcast message playMove
+        reject-game Broadcast message rejectGame
+```
+
+Firstly we'll start a new game:
+
+```
+    # Checkersd tx checkers create-game [red] [black] [wager] [token] [flags]
+    
+    ./checkersd tx checkers create-game \
+        cosmos17zx4vs4fhy7c2yv4gzq5u9uqutlzqv7xnt7035 \
+        ...
+        ...
+        ...
+        --from cosmos17zx4vs4fhy7c2yv4gzq5u9uqutlzqv7xnt7035 \
+        --node http://0.0.0.0:26657 \
+```
+
+Then we'll make a move:
+
+```
+    # Checkersd tx checkers play-move [idValue] [fromX] [fromY] [toX] [toY] [flags]
+
+    ./checkersd tx checkers play-move \
+        1 \
+        ...
+        ...
+        ...
+        --from cosmos17zx4vs4fhy7c2yv4gzq5u9uqutlzqv7xnt7035 \
+        --node http://0.0.0.0:26657 \
+```
+
+And then try rejecting a game: 
+
+```
+    # Checkersd tx checkers reject-game [idValue] [flags]
+
+    ./checkersd tx checkers reject-game \
+        1 \
+        --from cosmos17zx4vs4fhy7c2yv4gzq5u9uqutlzqv7xnt7035 \
+        --node http://0.0.0.0:26657 \
+        -y
+```
+
+> Noting that the above should fail as the game has already commenced
+
 ### Configure
 
 Your blockchain in development can be configured with `config.yml`. To learn more, see the [Starport docs](https://docs.starport.network).

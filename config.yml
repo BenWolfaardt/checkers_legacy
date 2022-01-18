@@ -7,6 +7,15 @@ accounts:
     coins: ["10000token", "100000000stake"]
     mnemonic: "special chest leaf section reunion inflict busy blouse inflict kid alcohol hazard embody mosquito green turkey street very lab forest gain disease hollow bomb"
     # cosmos1829s409tjju2luhudq5dfeus6je3vfdn987qpq
+  - name: sara
+    coins: ["10000token", "100000000stake"]
+    mnemonic: "skin repair chuckle boil culture strategy minimum fitness trigger confirm paper off demise long member artefact trip universe spice town sting stove alert load"
+    # cosmos17zx4vs4fhy7c2yv4gzq5u9uqutlzqv7xnt7035
+  - name: ben
+    coins: ["10000token", "100000000stake"]
+    mnemonic: "brief cream river coconut banana transfer price gather switch laugh piece jeans outer subway pair live target cheese nest harsh hammer install check cup"
+    # cosmos17vr3wphgmwrvnurg5h9frxvxw5zrtc878rmvyg
+
 validator:
   name: alice
   staked: "100000000stake"
