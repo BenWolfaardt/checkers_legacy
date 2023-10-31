@@ -3,8 +3,8 @@ package keeper_test
 import (
 	"testing"
 
-	testkeeper "github.com/BenWolfaardt/Checkers/testutil/keeper"
-	"github.com/BenWolfaardt/Checkers/x/checkers/types"
+	testkeeper "github.com/BenWolfaardt/checkers/testutil/keeper"
+	"github.com/BenWolfaardt/checkers/x/checkers/types"
 	"github.com/stretchr/testify/require"
 )
 

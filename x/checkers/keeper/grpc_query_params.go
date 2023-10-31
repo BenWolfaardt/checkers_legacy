@@ -3,7 +3,7 @@ package keeper
 import (
 	"context"
 
-	"github.com/BenWolfaardt/Checkers/x/checkers/types"
+	"github.com/BenWolfaardt/checkers/x/checkers/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"

@@ -3,7 +3,7 @@ package cli
 import (
 	"context"
 
-	"github.com/BenWolfaardt/Checkers/x/checkers/types"
+	"github.com/BenWolfaardt/checkers/x/checkers/types"
 	"github.com/cosmos/cosmos-sdk/client"
 	"github.com/cosmos/cosmos-sdk/client/flags"
 	"github.com/spf13/cobra"

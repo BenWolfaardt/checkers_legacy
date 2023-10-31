@@ -3,7 +3,7 @@ package benwolfaardt.checkers.checkers;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/BenWolfaardt/Checkers/x/checkers/types";
+option go_package = "github.com/BenWolfaardt/checkers/x/checkers/types";
 
 // Params defines the parameters for the module.
 message Params {

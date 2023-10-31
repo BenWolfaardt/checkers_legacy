@@ -1,6 +1,6 @@
 // THIS FILE IS GENERATED AUTOMATICALLY. DO NOT MODIFY.
 
-import BenWolfaardtCheckersBenwolfaardtCheckersCheckers from './BenWolfaardt/Checkers/benwolfaardt.checkers.checkers'
+import BenWolfaardtCheckersBenwolfaardtCheckersCheckers from './BenWolfaardt/checkers/benwolfaardt.checkers.checkers'
 import CosmosCosmosSdkCosmosAuthV1Beta1 from './cosmos/cosmos-sdk/cosmos.auth.v1beta1'
 import CosmosCosmosSdkCosmosBankV1Beta1 from './cosmos/cosmos-sdk/cosmos.bank.v1beta1'
 import CosmosCosmosSdkCosmosBaseTendermintV1Beta1 from './cosmos/cosmos-sdk/cosmos.base.tendermint.v1beta1'

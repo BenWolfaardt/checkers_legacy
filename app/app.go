@@ -98,17 +98,17 @@ import (
 	monitoringpkeeper "github.com/tendermint/spn/x/monitoringp/keeper"
 	monitoringptypes "github.com/tendermint/spn/x/monitoringp/types"
 
-	"github.com/BenWolfaardt/Checkers/docs"
+	"github.com/BenWolfaardt/checkers/docs"
 
-	checkersmodule "github.com/BenWolfaardt/Checkers/x/checkers"
-	checkersmodulekeeper "github.com/BenWolfaardt/Checkers/x/checkers/keeper"
-	checkersmoduletypes "github.com/BenWolfaardt/Checkers/x/checkers/types"
+	checkersmodule "github.com/BenWolfaardt/checkers/x/checkers"
+	checkersmodulekeeper "github.com/BenWolfaardt/checkers/x/checkers/keeper"
+	checkersmoduletypes "github.com/BenWolfaardt/checkers/x/checkers/types"
 	// this line is used by starport scaffolding # stargate/app/moduleImport
 )
 
 const (
 	AccountAddressPrefix = "cosmos"
-	Name                 = "Checkers"
+	Name                 = "checkers"
 )
 
 // this line is used by starport scaffolding # stargate/wasm/app/enabledProposals

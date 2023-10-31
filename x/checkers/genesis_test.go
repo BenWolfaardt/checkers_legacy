@@ -3,10 +3,10 @@ package checkers_test
 import (
 	"testing"
 
-	keepertest "github.com/BenWolfaardt/Checkers/testutil/keeper"
-	"github.com/BenWolfaardt/Checkers/testutil/nullify"
-	"github.com/BenWolfaardt/Checkers/x/checkers"
-	"github.com/BenWolfaardt/Checkers/x/checkers/types"
+	keepertest "github.com/BenWolfaardt/checkers/testutil/keeper"
+	"github.com/BenWolfaardt/checkers/testutil/nullify"
+	"github.com/BenWolfaardt/checkers/x/checkers"
+	"github.com/BenWolfaardt/checkers/x/checkers/types"
 	"github.com/stretchr/testify/require"
 )
 

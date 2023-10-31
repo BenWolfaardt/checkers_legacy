@@ -4,9 +4,9 @@ import (
 	"context"
 	"testing"
 
-	keepertest "github.com/BenWolfaardt/Checkers/testutil/keeper"
-	"github.com/BenWolfaardt/Checkers/x/checkers/keeper"
-	"github.com/BenWolfaardt/Checkers/x/checkers/types"
+	keepertest "github.com/BenWolfaardt/checkers/testutil/keeper"
+	"github.com/BenWolfaardt/checkers/x/checkers/keeper"
+	"github.com/BenWolfaardt/checkers/x/checkers/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

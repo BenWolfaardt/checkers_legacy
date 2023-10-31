@@ -1,8 +1,8 @@
 package checkers
 
 import (
-	"github.com/BenWolfaardt/Checkers/x/checkers/keeper"
-	"github.com/BenWolfaardt/Checkers/x/checkers/types"
+	"github.com/BenWolfaardt/checkers/x/checkers/keeper"
+	"github.com/BenWolfaardt/checkers/x/checkers/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 

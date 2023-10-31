@@ -1,7 +1,7 @@
 package keeper
 
 import (
-	"github.com/BenWolfaardt/Checkers/x/checkers/types"
+	"github.com/BenWolfaardt/checkers/x/checkers/types"
 )
 
 var _ types.QueryServer = Keeper{}

@@ -235,11 +235,11 @@ export class Api<SecurityDataType extends unknown> extends HttpClient<SecurityDa
    * @tags Query
    * @name QueryParams
    * @summary Parameters queries the parameters of the module.
-   * @request GET:/BenWolfaardt/Checkers/checkers/params
+   * @request GET:/BenWolfaardt/checkers/checkers/params
    */
   queryParams = (params: RequestParams = {}) =>
     this.request<CheckersQueryParamsResponse, RpcStatus>({
-      path: `/BenWolfaardt/Checkers/checkers/params`,
+      path: `/BenWolfaardt/checkers/checkers/params`,
       method: "GET",
       format: "json",
       ...params,

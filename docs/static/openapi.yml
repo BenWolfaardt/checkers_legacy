@@ -4,7 +4,7 @@ info:
   name: ''
   description: ''
 paths:
-  /BenWolfaardt/Checkers/checkers/params:
+  /BenWolfaardt/checkers/checkers/params:
     get:
       summary: Parameters queries the parameters of the module.
       operationId: BenwolfaardtCheckersCheckersParams
